@@ -1,0 +1,33 @@
+[
+
+	{
+		"id":"1",
+		"name":"8",
+		"coordinatesX":"8.0",
+		"coordinatesY":8,
+		"creationDate":"2024-03-12",
+		"area":8,
+		"numberOfRooms":"null",
+		"balcony":true,
+		"timeToMetroOnFoot":"8",
+		"view":"PARK",
+		"houseName":"8",
+		"houseYear":"8",
+		"houseNumberOfLifts":"7,
+	},
+	{
+		"id":"2",
+		"name":"4324567",
+		"coordinatesX":"54367.0",
+		"coordinatesY":675432,
+		"creationDate":"2024-03-12",
+		"area":7765432,
+		"numberOfRooms":"null",
+		"balcony":false,
+		"timeToMetroOnFoot":"43563",
+		"view":"STREET",
+		"houseName":"46456",
+		"houseYear":"45654",
+		"houseNumberOfLifts":"45,
+	}
+]
