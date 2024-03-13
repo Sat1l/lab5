@@ -36,7 +36,7 @@ public class Converter {
             }
             json.append(",\n");
         }
-        json.deleteCharAt(json.length() - 3);
+        json.deleteCharAt(json.length() - 2);
         json.append("},\n");
         return json.toString();
     }
@@ -46,12 +46,8 @@ public class Converter {
         StringBuilder tabbedJson = new StringBuilder();
         for (String row : rows){
             tabbedJson.append("\n\t").append(row);
-            System.out.println("\n\t" + row);
         }
         return tabbedJson.toString();
     }
 
-    public static Collection<Flat> jsonToFlats(String json){
-        String[] data = json.replaceAll(
-    }
 }

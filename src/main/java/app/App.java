@@ -19,6 +19,7 @@ public class App {
         if(app == null){
             app = new App();
         }
+        StorageManager.readStorage();
         return app;
     }
 

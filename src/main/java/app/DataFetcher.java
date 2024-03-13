@@ -51,8 +51,8 @@ public class DataFetcher {
     public void fetchNumberOfRooms(FlatData flatData){
         Scanner scanner = App.getInstance().getScanner();
         ConsoleGod.whisper("write an Int");
-        Integer area = scanner.nextInt();
-        flatData.setArea(area);
+        Long numberOfRooms = scanner.nextLong();
+        flatData.setNumberOfRooms(numberOfRooms);
     }
 
     public void fetchBalcony(FlatData flatData){

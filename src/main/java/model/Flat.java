@@ -68,4 +68,23 @@ public class Flat {
     public House getHouse() {
         return house;
     }
+
+    @Override
+    public String toString() {
+        return "Flat{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", coordinateX=" + coordinates.getX() +
+                ", coordinateY=" + coordinates.getY() +
+                ", creationDate=" + creationDate +
+                ", area=" + area +
+                ", numberOfRooms=" + numberOfRooms +
+                ", balcony=" + balcony +
+                ", timeToMetroOnFoot=" + timeToMetroOnFoot +
+                ", view=" + view +
+                ", houseName=" + house.getName() +
+                ", houseYear=" + house.getYear() +
+                ", houseNumberOfLifts=" + house.getNumberOfLifts() +
+                '}';
+    }
 }

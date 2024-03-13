@@ -1,9 +1,11 @@
 package main.java.app;
 
+import main.java.json.JsonParser;
 import main.java.misc.FlatData;
 import main.java.model.Flat;
 
 import java.util.Collection;
+import java.util.Formattable;
 import java.util.HashSet;
 
 public class CollectionManager {
@@ -23,6 +25,15 @@ public class CollectionManager {
 
     public long newId(){
         return ++lastId;
+    }
+
+    public Flat getFlatById(long id){
+        for(Flat flat : collection){
+            if (flat.getId() == id){
+                return flat;
+            }
+        }
+        return null;
     }
 
 }

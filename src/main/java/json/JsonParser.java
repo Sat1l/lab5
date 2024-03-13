@@ -1,28 +1,37 @@
 package main.java.json;
 
-import main.java.app.Converter;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import main.java.model.Flat;
+import main.java.type.adapters.LocalDateTypeAdapter;
+import com.google.gson.GsonBuilder;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.time.LocalDate;
 import java.util.Collection;
 
 public class JsonParser {
 
-    public Collection<Flat> parse(){
+    public Collection<Flat> parse() {
         String filepath = "./data.json";
-        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))){
-            StringBuilder data = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null){
-                data.append(line);
-            }
-            String json = data.toString();
-            return Converter.jsonToFlats(json);
-        } catch (IOException e){
-            e.printStackTrace();
+        Collection<Flat> collection;
 
+        try {
+            BufferedInputStream bis = new BufferedInputStream(new FileInputStream(filepath));
 
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
+                    .create();
+            collection = gson.fromJson(
+                    new InputStreamReader(bis),
+                    new TypeToken<Collection<Flat>>() {
+                    }.getType()
+            );
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException();
+        }
+
+        return collection;
     }
 }

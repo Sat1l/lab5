@@ -13,6 +13,5 @@ public class Add extends Command {
         CollectionManager collectionManager = App.getInstance().getCollectionManager();
         FlatData flatData = dataFetcher.fetch();
         collectionManager.addFlat(flatData);
-//        System.out.println(collectionManager.getCollection());
     }
 }
