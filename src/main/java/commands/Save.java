@@ -10,8 +10,13 @@ import java.util.Collection;
 
 public class Save extends Command{
     @Override
-    public void call() {
+    public void call(String arg) {
         StorageManager.saveToStorage();
+    }
+
+    @Override
+    public String getDescription() {
+        return "save collection to file";
     }
 
 }

@@ -8,10 +8,6 @@ public class CommandManager {
 
     HashMap<String, Command> commands = new HashMap<>();
 
-    public CommandManager(){
-
-    }
-
     public void add(String key, Command command){
         this.commands.put(key, command);
     }
@@ -20,4 +16,7 @@ public class CommandManager {
         return commands.get(key);
     }
 
+    public HashMap<String, Command> getCommands() {
+        return commands;
+    }
 }

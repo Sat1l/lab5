@@ -13,12 +13,17 @@ public class CommandCaller {
     }
 
     public void call(String request){
-        String[] content = request.split(" ");
-        Command command = commandManager.getCommandByKey(content[0]);
-        try {
-            command.call();
-        } catch (NullPointerException e) {
+        String[] content = request.split(" ", 2);
+
+        String argument = "";
+        if (content.length > 1) {
+            argument = content[1].trim();
         }
+        Command command = commandManager.getCommandByKey(content[0]);
+        if (command != null){
+            command.call(argument);
+        }
+
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class RemoveById extends Command{
     @Override
-    public void call() {
+    public void call(String arg) {
 
         Scanner scanner = App.getInstance().getScanner();
         ConsoleGod.whisper("write an id (int)");
@@ -19,5 +19,10 @@ public class RemoveById extends Command{
         CollectionManager manager = App.getInstance().getCollectionManager();
         Collection<Flat> flats =  manager.getCollection();
         flats.remove(manager.getFlatById(id));
+    }
+
+    @Override
+    public String getDescription() {
+        return "remove element from collection by id";
     }
 }

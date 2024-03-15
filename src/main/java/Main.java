@@ -14,12 +14,17 @@ public class Main {
         app.setCommandCaller(new CommandCaller());
         app.setConsoleRequestPoller(new ConsoleRequestPoller(app.getScanner(), app.getCommandCaller()));
         app.setCollectionManager(new CollectionManager());
+        app.getCollectionManager().setCollection(StorageManager.readStorage());
         app.getCommandManager().add("add", new Add());
         app.getCommandManager().add("save", new Save());
         app.getCommandManager().add("parse", new Parse());
         app.getCommandManager().add("clear", new Clear());
         app.getCommandManager().add("remove_by_id", new RemoveById());
         app.getCommandManager().add("show", new Show());
+        app.getCommandManager().add("update_id", new UpdateId());
+        app.getCommandManager().add("execute", new Execute());
+        app.getCommandManager().add("exit", new Exit());
+        app.getCommandManager().add("help", new Help());
         app.getConsoleRequestPoller().poll();
 
     }

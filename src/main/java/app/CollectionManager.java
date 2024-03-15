@@ -10,7 +10,7 @@ import java.util.HashSet;
 
 public class CollectionManager {
 
-    private final Collection<Flat> collection = new HashSet<>();
+    private Collection<Flat> collection = new HashSet<>();
 
     private long lastId = 0;
 
@@ -36,4 +36,24 @@ public class CollectionManager {
         return null;
     }
 
+    public void updateById(long id, FlatData newFlat){
+        collection.remove(getFlatById(id));
+        Flat flat = new Flat(id, newFlat);
+        collection.add(flat);
+    }
+
+    public void setCollection(Collection<Flat> collection){
+        this.collection = collection;
+        lastId = setLastId();
+    }
+
+    public long setLastId(){
+        long id = 0L;
+        for (Flat flat : collection){
+            if (flat.getId() > id){
+                id = flat.getId();
+            }
+        }
+        return id;
+    }
 }

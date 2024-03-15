@@ -1,5 +1,8 @@
 package main.java.app;
 
+import java.io.File;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Scanner;
 
 public class App {
@@ -12,6 +15,7 @@ public class App {
     ConsoleRequestPoller consoleRequestPoller;
 
     CollectionManager collectionManager;
+    private final Deque<File> scriptsStack = new ArrayDeque<>();
 
     private App(){ }
 
@@ -19,7 +23,6 @@ public class App {
         if(app == null){
             app = new App();
         }
-        StorageManager.readStorage();
         return app;
     }
 
@@ -61,6 +64,14 @@ public class App {
 
     public void setCollectionManager(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;
+    }
+
+    public Deque<File> getScriptsStack() {
+        return scriptsStack;
+    }
+
+    public boolean isInteractiveMode() {
+        return scriptsStack.isEmpty();
     }
 
 }

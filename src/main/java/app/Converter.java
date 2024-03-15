@@ -1,6 +1,11 @@
 package main.java.app;
 
+import main.java.misc.FlatData;
+import main.java.misc.ParsedFlatData;
+import main.java.model.Coordinates;
 import main.java.model.Flat;
+import main.java.model.House;
+import main.java.model.View;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -50,4 +55,23 @@ public class Converter {
         return tabbedJson.toString();
     }
 
+    public static Flat parsedToRealFlat(ParsedFlatData flat) {
+        FlatData flatData = new FlatData();
+        flatData.setName(flat.getName());
+        Coordinates coordinates = new Coordinates();
+        coordinates.setX(Double.parseDouble(flat.getCoordinatesX()));
+        coordinates.setY(Integer.parseInt(flat.getCoordinatesY()));
+        flatData.setCoordinates(coordinates);
+        flatData.setArea(flat.getArea());
+        flatData.setNumberOfRooms(flat.getNumberOfRooms());
+        flatData.setBalcony(flat.isBalcony());
+        flatData.setTimeToMetroOnFoot(flat.getTimeToMetroOnFoot());
+        flatData.setView(View.valueOf(flat.getView()));
+        House house = new House();
+        house.setName(flat.getHouseName());
+        house.setYear(flat.getHouseYear());
+        house.setNumberOfLifts(flat.getHouseNumberOfLifts());
+        flatData.setHouse(house);
+        return new Flat(flat.getId(), flatData);
+    }
 }
