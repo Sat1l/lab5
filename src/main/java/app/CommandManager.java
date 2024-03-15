@@ -1,6 +1,7 @@
 package main.java.app;
 
 import main.java.commands.Command;
+import main.java.exceptions.NoSuchCommandException;
 
 import java.util.HashMap;
 
@@ -12,7 +13,10 @@ public class CommandManager {
         this.commands.put(key, command);
     }
 
-    public Command getCommandByKey(String key){
+    public Command getCommandByKey(String key) throws NoSuchCommandException {
+        if (commands.get(key) == null){
+            throw new NoSuchCommandException(key);
+        }
         return commands.get(key);
     }
 

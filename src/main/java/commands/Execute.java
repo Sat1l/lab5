@@ -17,10 +17,10 @@ public class Execute extends Command{
             ConsoleGod.whisper("Recursion detected");
             return;
         }
-        App.getInstance().getScriptsStack().add(file);
         try {
             Scanner oldScanner = App.getInstance().getScanner();
             Scanner newScanner = new Scanner(file);
+            App.getInstance().getScriptsStack().add(file);
             App.getInstance().setScanner(newScanner);
             CommandCaller commandCaller = App.getInstance().getCommandCaller();
             while (newScanner.hasNextLine()){
@@ -30,7 +30,7 @@ public class Execute extends Command{
             App.getInstance().setScanner(oldScanner);
             App.getInstance().getScriptsStack().removeLast();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            ConsoleGod.whisper("didn't find the desired script file");
         }
 
     }

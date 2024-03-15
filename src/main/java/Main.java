@@ -25,6 +25,7 @@ public class Main {
         app.getCommandManager().add("execute", new Execute());
         app.getCommandManager().add("exit", new Exit());
         app.getCommandManager().add("help", new Help());
+        app.getCommandManager().add("info", new Info());
         app.getConsoleRequestPoller().poll();
 
     }

@@ -2,6 +2,7 @@ package main.java.app;
 
 import java.io.InputStreamReader;
 import java.util.Locale;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class ConsoleRequestPoller {
@@ -18,8 +19,12 @@ public class ConsoleRequestPoller {
     public void poll(){
         String retrieved;
         while(true){
-            retrieved = scanner.nextLine().trim().toLowerCase();
-            commandCaller.call(retrieved);
+            try {
+                retrieved = scanner.nextLine().trim().toLowerCase();
+                commandCaller.call(retrieved);
+            } catch (NoSuchElementException e){
+                commandCaller.call("exit");
+            }
         }
     }
 }
