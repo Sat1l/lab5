@@ -15,7 +15,6 @@ public class Main {
         app.setCommandCaller(new CommandCaller());
         app.setConsoleRequestPoller(new ConsoleRequestPoller(app.getScanner(), app.getCommandCaller()));
         app.setCollectionManager(new CollectionManager());
-//        initCol(args);
         app.getCollectionManager().setCollection(StorageManager.readStorage());
         app.getCommandManager().add("add", new Add());
         app.getCommandManager().add("save", new Save());
@@ -28,6 +27,12 @@ public class Main {
         app.getCommandManager().add("exit", new Exit());
         app.getCommandManager().add("help", new Help());
         app.getCommandManager().add("info", new Info());
+        app.getCommandManager().add("add_if_max", new AddIfMax());
+        app.getCommandManager().add("remove_greater", new RemoveGreater());
+        app.getCommandManager().add("remove_lower", new RemoveLower());
+        app.getCommandManager().add("average_of_ttmof", new AvgTimeToMetroOnFoot());
+        app.getCommandManager().add("print_desc_nor", new PrintDescendingNumberOfRooms());
+        app.getCommandManager().add("print_desc_ttmof", new PrintDescendingTTMOF());
         app.getConsoleRequestPoller().poll();
 
     }
