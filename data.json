@@ -1,11 +1,26 @@
 [
 
 	{
+		"id":"3",
+		"name":"asfas",
+		"coordinatesX":"42.0",
+		"coordinatesY":2312235,
+		"creationDate":"2024-03-15",
+		"area":53245,
+		"numberOfRooms":"11",
+		"balcony":false,
+		"timeToMetroOnFoot":"34575",
+		"view":"BAD",
+		"houseName":"3356sdg",
+		"houseYear":"453",
+		"houseNumberOfLifts":"11"
+	},
+	{
 		"id":"1",
 		"name":"asdfa",
-		"coordinatesX":"11234.0",
+		"coordinatesX":"810.0",
 		"coordinatesY":63456,
-		"creationDate":"2024-03-14",
+		"creationDate":"2024-03-15",
 		"area":234,
 		"numberOfRooms":"567",
 		"balcony":true,
@@ -14,5 +29,20 @@
 		"houseName":"11",
 		"houseYear":"44",
 		"houseNumberOfLifts":"66"
+	},
+	{
+		"id":"2",
+		"name":"add",
+		"coordinatesX":"43.0",
+		"coordinatesY":12343,
+		"creationDate":"2024-03-15",
+		"area":2345,
+		"numberOfRooms":"457745",
+		"balcony":false,
+		"timeToMetroOnFoot":"33524",
+		"view":"PARK",
+		"houseName":"123",
+		"houseYear":"55",
+		"houseNumberOfLifts":"44"
 	}
 ]

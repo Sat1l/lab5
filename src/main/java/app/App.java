@@ -15,6 +15,17 @@ public class App {
     ConsoleRequestPoller consoleRequestPoller;
 
     CollectionManager collectionManager;
+
+    String dataPath;
+
+    public String getDataPath() {
+        return dataPath;
+    }
+
+    public void setDataPath(String dataPath) {
+        this.dataPath = dataPath;
+    }
+
     private final Deque<File> scriptsStack = new ArrayDeque<>();
 
     private App(){ }

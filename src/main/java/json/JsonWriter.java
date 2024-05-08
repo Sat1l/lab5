@@ -1,5 +1,6 @@
 package main.java.json;
 
+import main.java.app.App;
 import main.java.app.Converter;
 import main.java.model.Flat;
 
@@ -14,6 +15,7 @@ public class JsonWriter {
     public void write(Collection<Flat> rows){
 
         String filepath = "./data.json";
+//        String filepath = App.getInstance().getDataPath();
         StringBuilder data = new StringBuilder();
 
         data.append("[\n");

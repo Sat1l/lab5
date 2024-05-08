@@ -3,6 +3,7 @@ package main.java;
 import main.java.app.*;
 import main.java.commands.*;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +15,7 @@ public class Main {
         app.setCommandCaller(new CommandCaller());
         app.setConsoleRequestPoller(new ConsoleRequestPoller(app.getScanner(), app.getCommandCaller()));
         app.setCollectionManager(new CollectionManager());
+//        initCol(args);
         app.getCollectionManager().setCollection(StorageManager.readStorage());
         app.getCommandManager().add("add", new Add());
         app.getCommandManager().add("save", new Save());
@@ -29,4 +31,9 @@ public class Main {
         app.getConsoleRequestPoller().poll();
 
     }
+//    private static void initCol(String[] arg){
+//        if (arg.length >= 1){
+//            App.getInstance().setDataPath(arg[0]);
+//        }
+//    }
 }

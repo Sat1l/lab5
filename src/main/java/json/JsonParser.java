@@ -2,6 +2,7 @@ package main.java.json;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+import main.java.app.App;
 import main.java.app.Converter;
 import main.java.misc.FlatData;
 import main.java.misc.ParsedFlatData;
@@ -19,6 +20,7 @@ public class JsonParser {
 
     public Collection<Flat> parse() {
         String filepath = "./data.json";
+//        String filepath = App.getInstance().getDataPath();
         Collection<ParsedFlatData> collection;
         Collection<Flat> flats = new HashSet<>();
 

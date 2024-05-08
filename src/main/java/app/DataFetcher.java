@@ -37,9 +37,9 @@ public class DataFetcher {
         Scanner scanner = App.getInstance().getScanner();
         ConsoleGod.whisper("write a double for X coordinate");
         Double coordX = fetchDouble();
+        coordinates.setX(coordX);
         ConsoleGod.whisper("write an int for Y coordinate");
         int coordy = fetchInt();
-        coordinates.setX(coordX);
         coordinates.setY(coordy);
         flatData.setCoordinates(coordinates);
     }
@@ -93,10 +93,10 @@ public class DataFetcher {
 
     public String fetchValue(boolean nullable){
         Scanner scanner = App.getInstance().getScanner();
-        String value = scanner.next();
+        String value = scanner.nextLine().trim();
         if (nullable && (value == "")) {
             return null;
-        } else if (!nullable && (value == "")) {
+        } else if (!nullable && (value.isEmpty())) {
             throw new CantBeNullException();
         } else {
             return value;
@@ -111,7 +111,7 @@ public class DataFetcher {
         while (true){
             try {
                 return Integer.parseInt(fetchValue());
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException | CantBeNullException e){
                 ConsoleGod.whisper("that's not an int u fool!");
             }
         }
@@ -121,7 +121,7 @@ public class DataFetcher {
         while (true) {
             try {
                 return Double.parseDouble(fetchValue());
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException | CantBeNullException  e) {
                 ConsoleGod.whisper("that's not a double u fool!");
             }
         }
@@ -131,7 +131,7 @@ public class DataFetcher {
         while (true) {
             try {
                 return Long.parseLong(fetchValue());
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException | CantBeNullException e) {
                 ConsoleGod.whisper("that's not a long u fool!");
             }
         }
@@ -142,12 +142,12 @@ public class DataFetcher {
         while (true) {
             try {
                 String data = fetchValue(true);
-                if (data.equals("y")){
-                    return true;
-                } else if (data.equals("n") || data.equals("")) {
+                if (data == null || data.equals("n")){
                     return false;
+                } else if (data.equals("y")) {
+                    return true;
                 } else {
-                    ConsoleGod.whisper("that's ");
+                    ConsoleGod.whisper("that's not an allowed string u fool! type either y/[n]");
                 }
             } catch (NumberFormatException e) {
                 ConsoleGod.whisper("that's not an allowed string u fool! type either y/[n]");
